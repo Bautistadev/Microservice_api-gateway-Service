@@ -29,12 +29,23 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
+
+
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>
 			<version>4.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -80,6 +91,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -105,31 +129,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.openapitools</groupId>
-				<artifactId>openapi-generator-maven-plugin</artifactId>
-				<version>7.0.1</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>
-								${project.basedir}/src/main/resources/openapi3_1.yaml
-							</inputSpec>
-							<generatorName>spring</generatorName>
-							<apiPackage>com.Microservice.productService</apiPackage>
-							<modelPackage>com.Microservice.productService.model</modelPackage>
-							<ignoreFileOverride>${project.basedir}/src/main/resources/swaggerIgnore</ignoreFileOverride>
-							<configOptions>
-								<delegatePattern>true</delegatePattern>
-								<serializableModel>true</serializableModel>
-							</configOptions>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 
