@@ -17,7 +17,7 @@ public class SecurityConfiguration {
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http){
         /**Que sea autenticado por oauth2 por defecto */
-        http.authorizeExchange(e -> e.pathMatchers("/eureka/**","/api/v1/authentication/**")
+        http.authorizeExchange(e -> e.pathMatchers("/eureka/**","/api/v1/authentication/**","/actuator/**")
                                                     .permitAll()
                                                     .anyExchange().authenticated())
                                 .oauth2ResourceServer(o -> o.jwt(Customizer.withDefaults()));
